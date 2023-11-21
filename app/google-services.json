@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1037911677377",
+    "project_id": "the-sweet-oven-e54c5",
+    "storage_bucket": "the-sweet-oven-e54c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037911677377:android:fd4ddd460ded77c72eb740",
+        "android_client_info": {
+          "package_name": "com.example.thesweetoven"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtuxHu91aQy9M8kLLN1XMl0F1UOaHDJQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
