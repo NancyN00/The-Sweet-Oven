@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--use the id as the same on as the ones in my_nav-->
+
     <item
         android:title="Home"
         android:id="@+id/homeFragment"
