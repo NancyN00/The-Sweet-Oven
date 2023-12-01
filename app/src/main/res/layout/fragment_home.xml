@@ -1,20 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="this is home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+      <androidx.core.widget.NestedScrollView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:fillViewport="true">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/lineargreet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+           app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_greet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello, Nancy!"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nairobi, Kenya"
+                    android:textStyle="bold"
+                    android:textSize="30sp"/>
+
+            </LinearLayout>
+
+         <ImageView
+             android:id="@+id/img_pic"
+             android:layout_width="30dp"
+             android:layout_height="wrap_content"
+             android:scaleType="centerCrop"
+             android:src="@drawable/baseline_person"/>
+        </LinearLayout>
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/card_search"
+       android:layout_width="match_parent"
+       android:layout_height="20dp"
+       android:layout_marginStart="10dp"
+       android:layout_marginTop="30dp"
+       app:cardCornerRadius="20dp"
+       android:elevation="20dp"
+       app:layout_constraintTop_toBottomOf="@+id/lineargreet">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_marginStart="30dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="20dp">
+
+           <ImageView
+               android:layout_width="30dp"
+               android:layout_height="wrap_content"
+               android:src="@drawable/baseline_search"/>
+
+          <EditText
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="What are you looking for?"
+              android:textSize="30sp"
+              android:textStyle="bold"/>
+       </LinearLayout>
+   </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:id="@+id/linear_homemade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/card_search">
+
+           <ImageView
+               android:layout_width="100dp"
+               android:layout_height="150dp"
+               android:src="@drawable/recipe"
+               android:scaleType="centerCrop"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_happiness"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:text="Happiness is Homemade"
+                    android:textColor="@color/purple"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/txt_recipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:textStyle="bold"
+                    android:text="Some easy homemade recipe for you"
+                    android:textSize="15sp"/>
+
+                <Button
+                    android:id="@+id/btn_explore"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:text="Explore"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_discover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:text="Discover"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/linear_homemade"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_explore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/text_discover"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+      </androidx.core.widget.NestedScrollView>
+</ScrollView>
