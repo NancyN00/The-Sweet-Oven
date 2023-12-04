@@ -1,4 +1,4 @@
-package com.example.thesweetoven.home
+package com.example.thesweetoven.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

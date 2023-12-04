@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.HomeFragment">
+    tools:context=".fragments.HomeFragment">
 
       <androidx.core.widget.NestedScrollView
           android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Hello, Nancy!"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:text="Nairobi, Kenya"
                     android:textStyle="bold"
-                    android:textSize="30sp"/>
+                    android:textSize="15sp"/>
 
             </LinearLayout>
 
@@ -59,7 +59,7 @@
    <androidx.cardview.widget.CardView
        android:id="@+id/card_search"
        android:layout_width="match_parent"
-       android:layout_height="20dp"
+       android:layout_height="40dp"
        android:layout_marginStart="10dp"
        android:layout_marginTop="30dp"
        app:cardCornerRadius="20dp"
@@ -80,10 +80,11 @@
                android:src="@drawable/baseline_search"/>
 
           <EditText
-              android:layout_width="match_parent"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="What are you looking for?"
-              android:textSize="30sp"
+              android:hint="What are you looking for?"
+              android:textSize="10sp"
+              android:textColor="@color/black"
               android:textStyle="bold"/>
        </LinearLayout>
    </androidx.cardview.widget.CardView>
@@ -133,13 +134,14 @@
 
                 <Button
                     android:id="@+id/btn_explore"
-                    android:layout_width="100dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Explore"
                     android:layout_marginStart="80dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="50dp"
                     android:layout_marginBottom="10dp"/>
+
             </LinearLayout>
         </LinearLayout>
 
