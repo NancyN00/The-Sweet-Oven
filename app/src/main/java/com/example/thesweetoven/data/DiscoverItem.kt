@@ -1,3 +1,3 @@
 package com.example.thesweetoven.data
 
-data class DiscoverItem( val title : String, val img: Int)
+data class DiscoverItem( val img: Int, val title: String)

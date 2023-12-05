@@ -40,6 +40,7 @@ class HomeActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
 
         findViewById<BottomNavigationView>(R.id.bottomNavView).setupWithNavController(navController)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
