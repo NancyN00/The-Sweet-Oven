@@ -21,6 +21,7 @@ class DiscoverAdapter : RecyclerView.Adapter<DiscoverAdapter.DiscoverViewHolder>
     }
     override fun getItemCount() : Int = discovers.size
 
+    //this method is used to set the list from the viewholder
     fun setDiscoverItems(discover : List<DiscoverItem>){
         this.discovers = discover.toMutableList()
         notifyDataSetChanged()

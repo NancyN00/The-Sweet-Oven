@@ -27,7 +27,6 @@ class HomeFragment : Fragment() {
     private lateinit var discoverList: MutableList<DiscoverItem>
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -63,6 +62,7 @@ class HomeFragment : Fragment() {
     private fun prepareRecyclerView() {
         discadapter = DiscoverAdapter()
         binding.recyclerExplore.layoutManager = GridLayoutManager( context, 2, GridLayoutManager.VERTICAL, false)
+        binding.recyclerExplore.setHasFixedSize(true)
         binding.recyclerExplore.adapter = discadapter
     }
 

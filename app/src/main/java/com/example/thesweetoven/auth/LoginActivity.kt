@@ -33,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
         login = findViewById(R.id.loginbtn)
         firebase = Firebase.auth
 
+        nocount.setOnClickListener {
+            startActivity((Intent(this, RegisterActivity::class.java)))
+        }
+
         //usermail is used as reference to editext in the widget
         //usermail.text  retrieves the text entered by the user in the edittext field
         //tostring() is used to convert the editable
@@ -54,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
 
             }
         }
+
     }
         }
 
