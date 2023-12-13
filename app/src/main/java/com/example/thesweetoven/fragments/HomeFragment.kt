@@ -1,23 +1,20 @@
 package com.example.thesweetoven.fragments
 
 import android.content.ContentValues.TAG
-import android.nfc.Tag
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.thesweetoven.R
 import com.example.thesweetoven.adapters.DiscoverAdapter
-import com.example.thesweetoven.data.DiscoverItem
+import com.example.thesweetoven.dataclasses.DiscoverItem
 import com.example.thesweetoven.databinding.FragmentHomeBinding
-import com.google.android.play.integrity.internal.t
 
 class HomeFragment : Fragment() {
 
@@ -45,15 +42,19 @@ class HomeFragment : Fragment() {
             Log.d("ExBtn", "Button Clicked")
         }
 
+
         discoverItems()
         prepareRecyclerView()
         updateDiscoverItems(discoverList)
+
 
 
         Log.d(TAG, "MYLIST : ${discoverList}" )
 
 
     }
+
+
 
     private fun updateDiscoverItems(discover: List<DiscoverItem>) {
         discadapter.setDiscoverItems(discover)
