@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".fragments.SearchFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -51,7 +52,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/donuts_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:scrollbars="none"
@@ -72,7 +73,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cakes_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:scrollbars="none"
@@ -93,7 +94,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cupcakes_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:scrollbars="none"
@@ -114,7 +115,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/pancakes_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:scrollbars="none"

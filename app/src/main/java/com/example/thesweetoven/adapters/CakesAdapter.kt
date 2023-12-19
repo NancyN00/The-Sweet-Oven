@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.thesweetoven.databinding.CakesLayoutBinding
 import com.example.thesweetoven.databinding.DonutsLayoutBinding
 import com.example.thesweetoven.dataclasses.CakesItem
+import com.example.thesweetoven.dataclasses.CupcakesItem
 
 class CakesAdapter : RecyclerView.Adapter<CakesAdapter.CakesViewHolder>() {
 
-    private lateinit var cakes : MutableList<CakesItem>
+    private var cakes = mutableListOf<CakesItem>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CakesViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = CakesLayoutBinding.inflate(inflater, parent, false)
