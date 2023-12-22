@@ -42,6 +42,9 @@ class LoginActivity : AppCompatActivity() {
         //tostring() is used to convert the editable
         //trim()function to remove leading and trailing whitespaces and then checks if the resulting string is empty
 
+        usermail.text = "nancy@gmail.com"
+        userpas.text = "12345678"
+
         login.setOnClickListener {
             val mail = usermail.text.toString().trim()
             val pass = userpas.text.toString().trim()

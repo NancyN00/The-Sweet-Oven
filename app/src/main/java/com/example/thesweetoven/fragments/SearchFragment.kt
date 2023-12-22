@@ -24,10 +24,10 @@ class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
 
-    private lateinit var donutAdapter: DonutsAdapter
-    private lateinit var cakeAdapter: CakesAdapter
-    private lateinit var cupcakeAdapter: CupcakesAdapter
-    private lateinit var pancakesAdapter: PancakesAdapter
+    var donutAdapter: DonutsAdapter = DonutsAdapter()
+    var cakeAdapter: CakesAdapter = CakesAdapter()
+    var cupcakeAdapter: CupcakesAdapter = CupcakesAdapter()
+    var pancakesAdapter: PancakesAdapter = PancakesAdapter()
 
     private lateinit var donutsList: MutableList<DonutsItem>
     private lateinit var cakesList: MutableList<CakesItem>
@@ -50,8 +50,8 @@ class SearchFragment : Fragment() {
       //  donutsList = mutableListOf()
 
         donutItems()
-        updateDonutsItems(donutsList)
         prepareDonutsRecyclerView()
+        updateDonutsItems(donutsList)
 
 
       //  cakesList = mutableListOf()
@@ -60,12 +60,10 @@ class SearchFragment : Fragment() {
         prepareCakesRecyclerView()
 
 
-
       //  cupcakeList = mutableListOf()
         cupcakeItem()
         updateCupcakesItems(cupcakeList)
         prepareCupcakesRecyclerView()
-
 
 
        // pancakesList = mutableListOf()
@@ -74,13 +72,14 @@ class SearchFragment : Fragment() {
         preparePancakesRecyclerView()
 
 
-
-
         Log.d("SearchFragment", "MyDonuts : $donutsList")
+        Log.d("SearchFragment", "MyCakes : $cakesList")
         Log.d("SearchFragment", "MyCupcakes : $cupcakeList")
         Log.d("SearchFragment", "MyPancakes : $pancakesList")
 
         //    Log.d(TAG, "MyDonuts : $donutsList" )
+
+
     }
 
     private fun pancakeItem() {
@@ -121,7 +120,6 @@ class SearchFragment : Fragment() {
     }
 
     private fun preparePancakesRecyclerView() {
-        pancakesAdapter = PancakesAdapter()
         binding.pancakesRecycler.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         binding.pancakesRecycler.setHasFixedSize(true)
@@ -133,7 +131,6 @@ class SearchFragment : Fragment() {
     }
 
     private fun prepareDonutsRecyclerView() {
-        donutAdapter = DonutsAdapter()
         binding.donutsRecycler.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         binding.donutsRecycler.setHasFixedSize(true)
@@ -181,7 +178,6 @@ class SearchFragment : Fragment() {
     }
 
     private fun prepareCakesRecyclerView() {
-        cakeAdapter = CakesAdapter()
         binding.cakesRecycler.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         binding.cakesRecycler.setHasFixedSize(true)
@@ -228,7 +224,6 @@ class SearchFragment : Fragment() {
 
 
     private fun prepareCupcakesRecyclerView() {
-        cupcakeAdapter = CupcakesAdapter()
         binding.cupcakesRecycler.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
         binding.cupcakesRecycler.setHasFixedSize(true)

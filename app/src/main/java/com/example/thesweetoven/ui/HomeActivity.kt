@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var navController : NavController
+    private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var toolbar: Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,17 +23,17 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentHost) as
-               NavHostFragment
+                NavHostFragment
 
         navController = navHostFragment.navController
 
-     appBarConfiguration  = AppBarConfiguration(
-         setOf(
-             R.id.homeFragment,
-             R.id.searchFragment,
-             R.id.profileFragment
-         )
-     )
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.homeFragment,
+                R.id.searchFragment,
+                R.id.profileFragment
+            )
+        )
 
         toolbar = findViewById(R.id.toolBar)
 
@@ -46,6 +46,6 @@ class HomeActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.fragmentHost)
         return navController.navigateUp(appBarConfiguration)
-                ||onSupportNavigateUp()
+                || onSupportNavigateUp()
     }
 }
