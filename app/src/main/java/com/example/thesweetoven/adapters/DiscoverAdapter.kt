@@ -9,7 +9,7 @@ import com.example.thesweetoven.databinding.DiscoverLayoutBinding
 import com.example.thesweetoven.dataclasses.DiscoverItem
 
 class DiscoverAdapter(
-    val onItemClick:(discover: DiscoverItem)-> Unit )
+    private val onItemClick: (position: Int) -> Unit )
    // private val navController: NavController,
  : RecyclerView.Adapter<DiscoverAdapter.DiscoverViewHolder>() {
 
@@ -26,9 +26,9 @@ class DiscoverAdapter(
         val discover = discovers[position]
         holder.bind(discover)
 
-     holder.itemView.setOnClickListener {
-           onItemClick(discover)
-     }
+        holder.itemView.setOnClickListener {
+            onItemClick.invoke(position)
+        }
 
 /*        holder.itemView.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_searchFragment)

@@ -37,6 +37,7 @@ class HomeActivity : AppCompatActivity() {
 
         toolbar = findViewById(R.id.toolBar)
 
+
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
 
         findViewById<BottomNavigationView>(R.id.bottomNavView).setupWithNavController(navController)

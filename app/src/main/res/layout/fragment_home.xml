@@ -57,38 +57,24 @@
              android:src="@drawable/baseline_person"/>
         </LinearLayout>
 
-   <androidx.cardview.widget.CardView
+   <com.google.android.material.card.MaterialCardView
        android:id="@+id/card_search"
        android:layout_width="match_parent"
-       android:layout_height="40dp"
+       android:layout_height="wrap_content"
        android:layout_marginStart="10dp"
        android:layout_marginTop="30dp"
        app:cardCornerRadius="20dp"
        android:elevation="20dp"
        app:layout_constraintTop_toBottomOf="@+id/lineargreet">
 
-       <LinearLayout
+       <androidx.appcompat.widget.SearchView
+           android:id="@+id/searchView"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:layout_marginStart="30dp"
-           android:layout_marginTop="10dp"
-           android:layout_marginEnd="20dp">
-
-           <ImageView
-               android:layout_width="30dp"
-               android:layout_height="wrap_content"
-               android:src="@drawable/baseline_search"/>
-
-          <EditText
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:hint="What are you looking for?"
-              android:textSize="10sp"
-              android:textColor="@color/black"
-              android:textStyle="bold"/>
-       </LinearLayout>
-   </androidx.cardview.widget.CardView>
+           app:iconifiedByDefault="false"
+           app:queryBackground="@android:color/transparent"
+           app:queryHint="What are you looking for? " />
+   </com.google.android.material.card.MaterialCardView>
 
 
         <LinearLayout

@@ -59,9 +59,13 @@ class HomeFragment : Fragment() {
         discadapter.setDiscoverItems(discover)
     }
 
-    //remove navcontroller from inside the () of discoveradapter
+    //remove navcontroller from inside DiscoverAdapter parameter
     private fun prepareRecyclerView() {
-        discadapter = DiscoverAdapter(onItemClick = (DiscoverItem -> Unit?))
+
+        discadapter = DiscoverAdapter{
+            navController.navigate(R.id.action_homeFragment_to_searchFragment)
+        }
+
         binding.recyclerExplore.layoutManager = GridLayoutManager( context, 2, GridLayoutManager.VERTICAL, false)
         binding.recyclerExplore.setHasFixedSize(true)
         binding.recyclerExplore.adapter = discadapter
