@@ -46,6 +46,7 @@
                 android:layout_height="match_parent"
                 android:text="Blueberry Oatmeal Pancakes"
                 android:textSize="10sp"
+                android:layout_marginStart="50dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

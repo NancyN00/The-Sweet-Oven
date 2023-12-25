@@ -86,8 +86,8 @@ class HomeFragment : Fragment() {
         val titleName = arrayOf(
             "Donuts",
             "Cakes",
-            "Cupcake",
-            "Pancake"
+            "Cupcakes",
+            "Pancakes"
         )
 
        for (i in imageId.indices){

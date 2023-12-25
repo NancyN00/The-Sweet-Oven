@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.thesweetoven.R
 import com.example.thesweetoven.adapters.CakesAdapter
@@ -18,6 +20,7 @@ import com.example.thesweetoven.dataclasses.CakesItem
 import com.example.thesweetoven.dataclasses.CupcakesItem
 import com.example.thesweetoven.dataclasses.DonutsItem
 import com.example.thesweetoven.dataclasses.PancakesItem
+import java.util.Locale
 
 
 class SearchFragment : Fragment() {
@@ -79,52 +82,126 @@ class SearchFragment : Fragment() {
 
         //    Log.d(TAG, "MyDonuts : $donutsList" )
 
+        binding.searchView.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                donutfilterlist(newText)
+                return true
+            }
+
+        })
+
+        binding.searchView.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                cupcakesfilterlist(newText)
+                return true
+            }
+
+        })
+
+        binding.searchView.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                cakesfilterlist(newText)
+                return true
+            }
+
+        })
+
+
+        binding.searchView.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                pancakesfilterlist(newText)
+                return true
+            }
+
+        })
+
 
     }
 
-    private fun pancakeItem() {
-
-        pancakesList = mutableListOf()
-
-        val imageId = arrayOf(
-            R.drawable.blueberrypancakes,
-            R.drawable.germanpancakes,
-            R.drawable.cinnamonrollpancakes,
-            R.drawable.buttermilkpancakes
-        )
-
-        val pancakeName = arrayOf(
-            "Blueberry Pancakes",
-            "German Pancakes",
-            "Cinnamon Pancakes",
-            "Buttermilk Pancakes"
-        )
-
-
-        val pancakeDesc = arrayOf(
-            "Made with ground oats instead of wheat flour.",
-            "Golden pan-style egg dish, with lots of big bubbles while baking",
-            "Are fluffy pancakes that are swirled with a cinnamon-sugar mixture then drizzled with a sweet cream cheese frosting.",
-            "A very light and fluffy pancake recipe that requires fresh buttermilk, but it's the best I've ever made! "
-        )
-
-
-        for (i in imageId.indices) {
-            val pankek = DonutsItem(imageId[i], pancakeName[i], pancakeDesc[i])
-            donutsList.add(pankek)
+    private fun pancakesfilterlist(newText: String?) {
+        if (newText != null){
+            val filteredList = mutableListOf<PancakesItem>()
+            for (i in pancakesList){
+                if (i.pancakes_name.toLowerCase(Locale.ROOT).contains(newText)){
+                    filteredList.add(i)
+                }
+            }
+            if (filteredList.isEmpty()){
+                Toast.makeText(context, "No Data Found", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                pancakesAdapter.setPancakesItems(filteredList)
+            }
         }
     }
 
-    private fun updatePancakesItems(pancakesss: List<PancakesItem>) {
-               pancakesAdapter.setPancakesItems(pancakesss)
+    private fun cakesfilterlist(text: String?) {
+        if (text != null){
+            val filteredList = mutableListOf<CakesItem>()
+            for (i in cakesList){
+                if (i.cakes_name.toLowerCase(Locale.ROOT).contains(text)){
+                    filteredList.add(i)
+                }
+            }
+            if (filteredList.isEmpty()){
+                Toast.makeText(context, "No Data Found", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                cakeAdapter.setCakesItem(filteredList)
+            }
+        }
     }
 
-    private fun preparePancakesRecyclerView() {
-        binding.pancakesRecycler.layoutManager =
-            GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
-        binding.pancakesRecycler.setHasFixedSize(true)
-        binding.pancakesRecycler.adapter = pancakesAdapter
+    private fun cupcakesfilterlist(quer: String?) {
+        if (quer != null){
+            val filteredList = mutableListOf<CupcakesItem>()
+            for (i in cupcakeList){
+                if (i.cupcakes_name.toLowerCase(Locale.ROOT).contains(quer)){
+                    filteredList.add(i)
+                }
+            }
+            if (filteredList.isEmpty()){
+                Toast.makeText(context, "No Data Found", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                cupcakeAdapter.setCupcakesItem(filteredList)
+            }
+        }
     }
+
+    private fun donutfilterlist(query: String?) {
+        if (query != null){
+            val filteredList = mutableListOf<DonutsItem>()
+            for (i in donutsList){
+                if (i.donuts_name.toLowerCase(Locale.ROOT).contains(query)){
+                    filteredList.add(i)
+                }
+            }
+            if (filteredList.isEmpty()){
+                Toast.makeText(context, "No Data Found", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                donutAdapter.setDonutsItems(filteredList)
+            }
+        }
+    }
+
 
     private fun updateDonutsItems(donut: List<DonutsItem>) {
         donutAdapter.setDonutsItems(donut)
@@ -263,6 +340,56 @@ class SearchFragment : Fragment() {
             val cupcakesss = CupcakesItem(imageId[i], cupcakesName[i], cupcakesDesc[i])
             cupcakeList.add(cupcakesss)
         }
+    }
+
+    //here could have used...private fun pancakeItem(){
+    //pancakeList.add(PancakeItem("Pancake" - this will mark the name of the item,
+    //  "R.drawable.pankek" - this is the image of the item,
+    //"They are sweet and tender" - this to mark the desc.))
+    //pancakeList.add(PancakeItem(".... repeat the process.)
+
+    private fun pancakeItem() {
+
+        pancakesList = mutableListOf()
+
+        val imageId = arrayOf(
+            R.drawable.blueberrypancakes,
+            R.drawable.germanpancakes,
+            R.drawable.cinnamonrollpancakes,
+            R.drawable.buttermilkpancakes
+        )
+
+        val pancakeName = arrayOf(
+            "Blueberry Pancakes",
+            "German Pancakes",
+            "Cinnamon Pancakes",
+            "Buttermilk Pancakes"
+        )
+
+
+        val pancakeDesc = arrayOf(
+            "Made with ground oats instead of wheat flour.",
+            "Golden pan-style egg dish, with lots of big bubbles while baking",
+            "Are fluffy pancakes that are swirled with a cinnamon-sugar mixture then drizzled with a sweet cream cheese frosting.",
+            "A very light and fluffy pancake recipe that requires fresh buttermilk, but it's the best I've ever made! "
+        )
+
+
+        for (i in imageId.indices) {
+            val pankek = DonutsItem(imageId[i], pancakeName[i], pancakeDesc[i])
+            donutsList.add(pankek)
+        }
+    }
+
+    private fun updatePancakesItems(pancakesss: List<PancakesItem>) {
+        pancakesAdapter.setPancakesItems(pancakesss)
+    }
+
+    private fun preparePancakesRecyclerView() {
+        binding.pancakesRecycler.layoutManager =
+            GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+        binding.pancakesRecycler.setHasFixedSize(true)
+        binding.pancakesRecycler.adapter = pancakesAdapter
     }
 }
 
