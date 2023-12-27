@@ -1,6 +1,6 @@
 # The Sweet Oven
 
-A simple bakery application.
+A bakery application with donuts, cakes, cupcakes and pancakes.
 
 ## Features
 
