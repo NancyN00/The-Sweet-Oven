@@ -49,16 +49,17 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginbtn"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
-        android:text="Log In"
+        android:text="LogIn"
+        tools:layout_editor_absoluteX="108dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/purple"
+        android:backgroundTint="@color/purple"
         app:layout_constraintTop_toBottomOf="@id/passwordLayout"/>
 
     <TextView
